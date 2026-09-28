@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Mahi 💕</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    color: #fff5fa;
+    background:
+        radial-gradient(circle at top, #681d40, #270b1b 55%, #10030a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+/* Main card */
+.card {
+    width: 92%;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 40px 28px;
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,190,215,0.6);
+    border-radius: 30px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 20px 70px rgba(0,0,0,0.5);
+}
+h1 {
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
+    margin: 10px 0;
+}
+h2 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+}
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+/* Buttons */
+button {
+    border: none;
+    border-radius: 50px;
+    padding: 14px 25px;
+    margin: 10px;
+    background: #f4a6c8;
+    color: #3c0b21;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 25px rgba(255,150,195,0.4);
+}
+/* Hidden sections */
+.hidden {
+    display: none;
+}
+/* Mission boxes */
+.clue {
+    margin: 22px 0;
+    padding: 22px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+/* Final message */
+#final {
+    animation: glow 1.8s ease-in-out infinite alternate;
+}
+@keyframes glow {
+    from {
+        text-shadow: 0 0 8px #ff9fc4;
+    }
+    to {
+        text-shadow:
+            0 0 20px #ff4f9a,
+            0 0 45px #ff9fc4;
+    }
+}
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 20px;
+    opacity: 0;
+    animation: floatUp 8s linear infinite;
+    pointer-events: none;
+}
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+.small {
+    opacity: 0.75;
+    font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+<!-- Floating hearts -->
+<div class="heart" style="left:8%; animation-delay:1s;">♥</div>
+<div class="heart" style="left:25%; animation-delay:3s;">♡</div>
+<div class="heart" style="left:45%; animation-delay:0s;">♥</div>
+<div class="heart" style="left:68%; animation-delay:2s;">♡</div>
+<div class="heart" style="left:90%; animation-delay:4s;">♥</div>
+<div class="card">
+    <!-- START PAGE -->
+    <section id="start">
+        <div class="small">
+            🔐 A little birthday surprise...
+        </div>
+        <h1>For Mahi 💕</h1>
+        <p>
+            Someone special has a little surprise waiting for her...
+        </p>
+        <button onclick="begin()">
+            Enter your surprise ✨
+        </button>
+    </section>
+    <!-- MISSION -->
+    <section id="mission" class="hidden">
+        <h2>🎂 Birthday Mission</h2>
+        <p>
+            There are three little doors.
+            Open them one by one... 💗
+        </p>
+        <!-- LEVEL 1 -->
+        <div class="clue">
+            <h3>LEVEL 1 💌</h3>
+            <p>
+                Find the memory that made everything
+                feel a little different.
+            </p>
+            <button onclick="reveal(1)">
+                Open 💕
+            </button>
+            <p id="a1" class="hidden">
+                The first time we hugged at school. 🫂
+            </p>
+        </div>
+        <!-- LEVEL 2 -->
+        <div class="clue">
+            <h3>LEVEL 2 🌙</h3>
+            <p>
+                What did that moment feel like?
+            </p>
+            <button onclick="reveal(2)">
+                Open 💗
+            </button>
+            <p id="a2" class="hidden">
+                It felt like the coziest thing ever. ❤️
+            </p>
+        </div>
+        <!-- LEVEL 3 -->
+        <div class="clue">
+            <h3>LEVEL 3 ✨</h3>
+            <p>
+                One final door remains...
+            </p>
+            <button onclick="reveal(3)">
+                Open 💝
+            </button>
+            <p id="a3" class="hidden">
+                A message from Saim,
+                written especially for Mahi. 🫀
+            </p>
+        </div>
+        <button id="finalBtn"
+                class="hidden"
+                onclick="showFinal()">
+            🎁 Open the FINAL SURPRISE
+        </button>
+    </section>
+    <!-- FINAL SURPRISE -->
+    <section id="final" class="hidden">
+        <div style="font-size:4rem;">
+            💐✨💗
+        </div>
+        <h1>
+            Happy Birthday, Mahi! 🎂
+        </h1>
+        <p>
+            Of all the memories I could choose,
+            I'll always have a soft spot for our
+            first hug at school.
+        </p>
+        <p>
+            It felt like the coziest thing ever,
+            and it's a memory I'll always keep close. 🫂❤️
+        </p>
+        <p>
+            And now...
+            the thing I really wanted you to see:
+        </p>
+        <h2>
+            I LOVE YOU SOOO MUCHH JANUU
+            💕💕💕💖💖🫀🫀💗💘💞💋✨💫💝💓
+        </h2>
+        <p>
+            — Saim 🫀
+        </p>
+        <button onclick="restart()">
+            Read it again 💕
+        </button>
+    </section>
+</div>
+<script>
+function begin() {
+    document.getElementById("start")
+        .classList.add("hidden");
+    document.getElementById("mission")
+        .classList.remove("hidden");
+}
+function reveal(number) {
+    document.getElementById("a" + number)
+        .classList.remove("hidden");
+    if (number === 3) {
+        document.getElementById("finalBtn")
+            .classList.remove("hidden");
+    }
+}
+function showFinal() {
+    document.getElementById("mission")
+        .classList.add("hidden");
+    document.getElementById("final")
+        .classList.remove("hidden");
+}
+function restart() {
+    location.reload();
+}
+</script>
+</body>
+</html>
